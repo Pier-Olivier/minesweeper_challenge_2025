@@ -24,10 +24,9 @@ class MinesweeperAnalyserTest
 {
     private $grid = ".*.**.\n....*.\n..*...";
     private $expectedOutput = "1*2**2\n1234*2\n01*211";
+
     public function testAnalyse(): bool {
-
         $minesweeperAnalyser = new MinesweeperAnalyser($this->grid);
-
         if ($minesweeperAnalyser->getGrid() === $this->grid
             && $minesweeperAnalyser->analyse() === $this->expectedOutput
         ) {
@@ -37,7 +36,6 @@ class MinesweeperAnalyserTest
          }
     }
 }
-
 
 $test = new MinesweeperAnalyserTest();
 var_dump(
