@@ -18,6 +18,15 @@ class MinesweeperAnalyser
     {
         return $this->grid;
     }
+
+    private function isMine(string $cell): bool
+    {
+            if ($cell === '*') {
+                return true;
+            }
+            
+            return false;
+    }
 }
 
 class MinesweeperAnalyserTest
