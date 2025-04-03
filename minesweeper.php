@@ -19,12 +19,12 @@ class MinesweeperAnalyser
         return $this->grid;
     }
 
-    private function isMine(string $cell): bool
+    public function isMine(string $cell): bool
     {
             if ($cell === '*') {
                 return true;
             }
-            
+
             return false;
     }
 }
@@ -36,13 +36,13 @@ class MinesweeperAnalyserTest
 
     public function testAnalyse(): bool {
         $minesweeperAnalyser = new MinesweeperAnalyser($this->grid);
-        if ($minesweeperAnalyser->getGrid() === $this->grid
-            && $minesweeperAnalyser->analyse() === $this->expectedOutput
+        if ($minesweeperAnalyser->getGrid() !== $this->grid
+            || $minesweeperAnalyser->analyse() !== $this->expectedOutput
         ) {
-            return true;
-        } else {
             return false;
-         }
+        }
+
+        return true;
     }
 }
 
