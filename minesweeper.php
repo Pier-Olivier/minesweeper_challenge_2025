@@ -40,17 +40,10 @@ class MinesweeperAnalyserTest
     public function testAnalyse(): bool {
         $minesweeperAnalyser = new MinesweeperAnalyser($this->grid);
 
-        if ($minesweeperAnalyser->getGrid() !== $this->grid
-            || $minesweeperAnalyser->analyse() !== $this->expectedOutput
-        ) {
-            return false;
-        }
-
-        if ($minesweeperAnalyser->isMine($this->grid[0]) !== false
-            || $minesweeperAnalyser->isMine($this->grid[1]) !== true
-        ) {
-            return false;
-        }
+        assert($minesweeperAnalyser->getGrid() === $this->grid, "Grid does not match the expected input grid.");
+        assert($minesweeperAnalyser->analyse() === $this->expectedOutput, "Analyse output does not match the expected output.");
+        assert($minesweeperAnalyser->isMine($this->grid[0]) === false, "First cell should not be a mine.");
+        assert($minesweeperAnalyser->isMine($this->grid[1]) === true, "Second cell should be a mine.");
 
         return true;
     }
