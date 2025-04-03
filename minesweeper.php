@@ -21,11 +21,14 @@ class MinesweeperAnalyser
 
     public function isMine(string $cell): bool
     {
-            if ($cell === '*') {
+        switch ($cell) {
+            case '.':
+                return false;
+            case '*':
                 return true;
-            }
-
-            return false;
+            default:
+                throw new InvalidArgumentException("Invalid cell value");
+        }
     }
 }
 
@@ -43,7 +46,7 @@ class MinesweeperAnalyserTest
             return false;
         }
 
-        if ($minesweeperAnalyser->isMine('a') !== true
+        if ($minesweeperAnalyser->isMine('*') !== true
             || $minesweeperAnalyser->isMine('.') !== false
         ) {
             return false;
