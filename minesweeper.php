@@ -36,8 +36,15 @@ class MinesweeperAnalyserTest
 
     public function testAnalyse(): bool {
         $minesweeperAnalyser = new MinesweeperAnalyser($this->grid);
+
         if ($minesweeperAnalyser->getGrid() !== $this->grid
             || $minesweeperAnalyser->analyse() !== $this->expectedOutput
+        ) {
+            return false;
+        }
+
+        if ($minesweeperAnalyser->isMine('a') !== true
+            || $minesweeperAnalyser->isMine('.') !== false
         ) {
             return false;
         }
