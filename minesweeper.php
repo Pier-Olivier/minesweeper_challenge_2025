@@ -46,8 +46,8 @@ class MinesweeperAnalyserTest
             return false;
         }
 
-        if ($minesweeperAnalyser->isMine('*') !== true
-            || $minesweeperAnalyser->isMine('.') !== false
+        if ($minesweeperAnalyser->isMine($this->grid[0]) !== false
+            || $minesweeperAnalyser->isMine($this->grid[1]) !== true
         ) {
             return false;
         }
